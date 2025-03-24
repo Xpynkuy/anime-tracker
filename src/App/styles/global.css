@@ -1,0 +1,15 @@
+@import 'clear.scss';
+@import "variables.scss";
+
+
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.app {
+    font: var(--font-m);
+    margin: 0 auto;
+    width: 1440px;
+}
