@@ -1,25 +1,12 @@
-import { Route, Routes } from 'react-router-dom'
-import './styles/global.css'
-import { Layout } from '../widgets/layout'
-import { MainPage } from '../pages/main'
-import { CatalogPage } from '../pages/catalog'
+import { AppRoutes } from "./providers/routes";
+import "./styles/global.css";
 
 function App() {
-
-
-    return (
-        <div className='app'>
-            <Routes>
-                <Route path='/' element={<Layout/>}>
-                    <Route index element={<MainPage/>}></Route>
-                    <Route path='catalog' element={<CatalogPage/>}></Route>
-                </Route>
-            </Routes>
-            
-           
-            
-        </div>
-    )
+  return (
+    <div className="app">
+      <AppRoutes />
+    </div>
+  );
 }
 
-export default App
+export default App;
