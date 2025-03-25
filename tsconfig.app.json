@@ -20,7 +20,18 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* ✅ Path aliases */
+    "baseUrl": "src",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@widgets/*": ["widgets/*"],
+      "@shared/*": ["shared/*"],
+      "@features/*": ["features/*"],
+      "@entities/*": ["entities/*"],
+      "@app/*": ["app/*"]
+    }
   },
   "include": ["src"]
 }
