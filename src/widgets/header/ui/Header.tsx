@@ -1,6 +1,7 @@
+import Applinks from "@shared/ui/AppLinks/AppLInks/Applinks";
 import styles from "./Header.module.scss";
-import Button from "../../../shared/ui/button/Button";
-import Applinks from "../../../shared/ui/AppLinks/AppLInks/Applinks";
+import SearchInput from "@shared/ui/searchInput/SearchInput";
+import Button from "@shared/ui/button/Button";
 
 export const Header = () => {
   return (
@@ -14,6 +15,7 @@ export const Header = () => {
         <Applinks to="/news">News</Applinks>
         <Applinks to="/collections">Collections</Applinks>
       </div>
+      <SearchInput />
       <div className={styles.header__btn}>
         <Button>Log In</Button>
         <Button>Get started</Button>

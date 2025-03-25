@@ -1,3 +1,1 @@
-import CatalogPage from "./catalog/CatalogPage";
-
-export {CatalogPage}
+export { CatalogPageAsync as CatalogPage } from './ui/CatalogPage.async';
