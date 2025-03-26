@@ -1,8 +1,11 @@
 .btn {
-    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50px;
     min-width: 100px;
-    border-radius: var(--border);
+    padding: 10px;
+    border-radius: var(--border-radius);
     border: none;
     background: var(--bg-color-light);
     font: var(--font-m);
