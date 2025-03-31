@@ -1,0 +1,28 @@
+// animations.scss
+
+// Общая transition для кнопок, иконок и интерактивных элементов
+@mixin hover-scale($scale: 1.05) {
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+      transform: scale($scale);
+    }
+  }
+  
+  // Плавное появление
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @mixin fade-in($duration: 0.3s) {
+    animation: fadeIn $duration ease-in-out forwards;
+  }
+  
+  // Hover-смена цвета текста
+  @mixin hover-text-color($color: var(--text-color-gray)) {
+    transition: color 0.3s ease;
+    &:hover {
+      color: $color;
+    }
+  }
+  
