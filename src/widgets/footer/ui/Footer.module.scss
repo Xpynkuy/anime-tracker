@@ -1,0 +1,33 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font: var(--font-m);
+    height: 100px;
+
+    .links {
+        display: flex;
+        gap: 15px;
+
+        .link {
+            color: var(--text-color-gray);
+            cursor: pointer;
+        }
+    }
+
+    .social {
+        display: flex;
+        gap: 15px;
+        
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            padding: 5px;
+            color: var(--text-color-dark);
+            background: var(--bg-color-white);
+            cursor: pointer;
+        }     
+    }
+}
