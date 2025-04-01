@@ -1,5 +1,9 @@
+@use '/src/App/styles/animations.scss' as animations;
+
 .AppLink {
     color: var(--text-color-gray);
     text-decoration: none;
     margin-right: 30px;
+
+    @include animations.underline-hover;
 }

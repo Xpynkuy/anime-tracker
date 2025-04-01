@@ -1,3 +1,5 @@
+@use "../../../App/styles/animations" as animations;
+
 .footer {
     display: flex;
     justify-content: space-between;
@@ -12,6 +14,7 @@
         .link {
             color: var(--text-color-gray);
             cursor: pointer;
+            @include animations.hover-text-color;
         }
     }
 
