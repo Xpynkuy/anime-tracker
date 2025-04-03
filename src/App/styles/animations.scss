@@ -7,7 +7,18 @@
 }
 
 
+// Анимация для нижней полосы (слева направо, как было)
 @keyframes underline-transform {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// Новая анимация для верхней полосы (справа налево)
+@keyframes overline-transform {
   from {
     transform: scaleX(0);
   }
@@ -19,6 +30,7 @@
 @mixin underline-hover($color: var(--text-color-gray), $height: 2px, $duration: 0.4s) {
   position: relative;
 
+  // Нижняя полоса (слева направо)
   &::after {
     content: '';
     position: absolute;
@@ -28,13 +40,32 @@
     height: $height;
     background-color: $color;
     transform: scaleX(0);
-    transform-origin: left;
+    transform-origin: left; // Начало анимации слева
     transition: transform $duration ease-in-out;
   }
 
-  &:hover::after {
-    animation: underline-transform $duration ease-in-out forwards;
+  // Верхняя полоса (справа налево)
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0; // Начнем с правой стороны
+    top: -4px; // Расположим сверху
+    width: 100%;
+    height: $height;
+    background-color: $color;
+    transform: scaleX(0);
+    transform-origin: right; // Начало анимации справа
+    transition: transform $duration ease-in-out;
+  }
+
+  // Анимация при наведении
+  &:hover {
+    &::after {
+      animation: underline-transform $duration ease-in-out forwards;
+    }
+    &::before {
+      animation: overline-transform $duration ease-in-out forwards;
+    }
   }
 }
-
 
