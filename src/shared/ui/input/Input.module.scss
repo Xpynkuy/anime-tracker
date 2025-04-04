@@ -1,15 +1,14 @@
 .input {
     height: 50px;
-    max-width: 400px;
-    min-width: 200px;
     width: 100%;
-    font: var(--font-m);
-    padding: 10px;
-    background: rgba(gray, $alpha: 0.1);
     border: 1px solid rgb(92, 92, 92);
     border-radius: var(--border-radius);
+    background: transparent;
+    color: var(--text-color-white);
+    font: var(--font-m);
+    padding: 15px;
 
-    &:focus{
+    &:focus {
         outline: none;
     }
 }

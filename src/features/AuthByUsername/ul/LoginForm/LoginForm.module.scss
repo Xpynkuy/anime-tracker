@@ -1,0 +1,21 @@
+.LoginModal {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h2 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .Input {
+        display: flex;
+        flex-direction: column;
+        
+         span {
+            color: var(--text-color-gray);
+            font: var(--font-s);
+            margin-bottom: 5px;
+         }
+    }
+}

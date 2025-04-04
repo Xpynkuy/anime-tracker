@@ -9,6 +9,10 @@
         font: var(--font-xl-logo);
         color: var(--text-color);
     }
+
+    .links {
+        display: flex;
+    }
     
     .header__btn{
         display: flex;

@@ -7,7 +7,7 @@
     z-index: 1000;
 
     .overlay {
-        display: flex; 
+        display: flex;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -16,12 +16,14 @@
 
         .content {
             position: relative;
-            padding: 50px 25px;
+            padding: 50px 45px;
             height: 500px;
             width: 400px;
             background: var(--bg-color);
             border-radius: var(--border-radius);
             border: 2px solid var(--bg-color-light);
+            box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 
             .closeBtn {
                 position: absolute;

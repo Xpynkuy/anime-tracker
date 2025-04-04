@@ -7,7 +7,6 @@
 }
 
 
-// Анимация для нижней полосы (слева направо, как было)
 @keyframes underline-transform {
   from {
     transform: scaleX(0);
@@ -17,7 +16,6 @@
   }
 }
 
-// Новая анимация для верхней полосы (справа налево)
 @keyframes overline-transform {
   from {
     transform: scaleX(0);
@@ -35,12 +33,12 @@
     content: '';
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -2px;
     width: 100%;
     height: $height;
     background-color: $color;
     transform: scaleX(0);
-    transform-origin: left; // Начало анимации слева
+    transform-origin: left; 
     transition: transform $duration ease-in-out;
   }
 
@@ -48,17 +46,16 @@
   &::before {
     content: '';
     position: absolute;
-    right: 0; // Начнем с правой стороны
-    top: -4px; // Расположим сверху
+    right: 0; 
+    top: -2px; 
     width: 100%;
     height: $height;
     background-color: $color;
     transform: scaleX(0);
-    transform-origin: right; // Начало анимации справа
+    transform-origin: right; 
     transition: transform $duration ease-in-out;
   }
 
-  // Анимация при наведении
   &:hover {
     &::after {
       animation: underline-transform $duration ease-in-out forwards;

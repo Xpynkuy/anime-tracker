@@ -4,6 +4,14 @@
     color: var(--text-color-gray);
     text-decoration: none;
     margin-right: 30px;
+    position: relative;
 
     @include animations.underline-hover;
+
+    &.noAnimation {
+        &::before,
+        &::after {
+            display: none !important;
+        }
+    }
 }

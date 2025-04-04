@@ -13,5 +13,5 @@ body {
 .app {
     font: var(--font-m);
     margin: 0 auto;
-    width: 1280px;
+    max-width: 1280px;
 }
