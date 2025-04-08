@@ -28,9 +28,13 @@
             justify-content: center;
             border-radius: var(--border-radius);
             padding: 5px;
-            color: var(--text-color-dark);
+            color: var(--text-color);
             background: var(--bg-color-white);
             cursor: pointer;
+
+            svg {
+                fill: var(--text-color-dark);
+              }
         }     
     }
 }
