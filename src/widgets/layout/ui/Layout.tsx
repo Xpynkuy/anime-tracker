@@ -5,8 +5,6 @@ import { Header } from "@widgets/header";
 import Loader from "@shared/ui/loader/Loader";
 import { Footer } from "@widgets/footer";
 
-
-
 export const Layout = () => {
   return (
     <div className={styles.wrapper}>

@@ -3,7 +3,7 @@ import styles from "./Modal.module.scss";
 import { X } from "lucide-react";
 
 interface ModalProps {
-  children: ReactNode;
+  children?: ReactNode;
   isOpen: boolean;
   onClose: () => void;
 }
