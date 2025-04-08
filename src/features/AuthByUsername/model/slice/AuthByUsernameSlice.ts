@@ -10,7 +10,7 @@ const initialState: LoginSchema = {
     error: ''
 }
 
-export const LoginSlice = createSlice({
+export const loginSlice  = createSlice({
     name: 'login',
     initialState,
     reducers: {
@@ -36,5 +36,5 @@ export const LoginSlice = createSlice({
     }
 })
 
-export const {setUsername, setPassword} = LoginSlice.actions
-export default LoginSlice.reducer
+export const { actions: loginActions } = loginSlice;
+export const { reducer: loginReducer } = loginSlice;

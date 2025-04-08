@@ -1,12 +1,12 @@
 import Applinks from "@shared/ui/AppLinks/AppLInks/Applinks";
 import styles from "./Header.module.scss";
 import SearchInput from "@shared/ui/searchInput/SearchInput";
-import Button from "@shared/ui/button/Button";
+import { AuthButton } from "@features/AuthButton/ui/AuthButton";
 
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <Applinks to="/">
+      <Applinks to="/" noAnimation={true}>
         <span className={styles.logo}>Kurosaw</span>
       </Applinks>
       <div className={styles.links}>
@@ -16,10 +16,7 @@ export const Header = () => {
         <Applinks to="/collections">Collections</Applinks>
       </div>
       <SearchInput />
-      <div className={styles.header__btn}>
-        <Button>Log In</Button>
-        <Button>Get started</Button>
-      </div>
+      <AuthButton/>
     </header>
   );
 };
