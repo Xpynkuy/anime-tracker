@@ -6,6 +6,12 @@
     margin-right: 30px;
     position: relative;
 
+    &:hover,
+    &:focus {
+      color: var(--text-color);
+      outline: none; // Убрать стандартный outline, если нужно
+    }
+
     @include animations.underline-hover;
 
     &.noAnimation {

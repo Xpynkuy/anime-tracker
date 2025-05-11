@@ -1,10 +1,13 @@
-import './Loader.scss'
+import "./Loader.scss";
 
 const Loader = () => {
   return (
-    <div className="loader"></div>
+    <div className="loader">
+      <span className="bar"></span>
+      <span className="bar"></span>
+      <span className="bar"></span>
+    </div>
+  );
+};
 
-  )
-}
-
-export default Loader
+export default Loader;
