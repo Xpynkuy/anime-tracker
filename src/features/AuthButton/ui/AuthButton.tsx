@@ -1,6 +1,6 @@
 // features/AuthButton/ui/AuthButton.tsx
 import { userActions } from "@entities/User";
-import LoginModal from "@features/AuthByUsername/ul/LoginModal/LoginModal";
+import LoginModal from "../../AuthByUsername/ul/LoginModal/LoginModal";
 import Button from "@shared/ui/button/Button";
 import { useAppDispatch, useAppSelector } from "@shared/ui/hooks/redux";
 import { useState, useCallback } from "react";
@@ -8,7 +8,7 @@ import { useState, useCallback } from "react";
 export const AuthButton = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const authData = useAppSelector((state) => state.user.authData);
+  const authData = useAppSelector(state => state.user?.authData);
   const dispatch = useAppDispatch();
 
   const handleOpenModal = useCallback(() => {
