@@ -2,22 +2,39 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from '@entities/User';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ReducerManager } from './StateSchema';
+import { $api } from '@shared/api/api';
 
+// Шаг 1: Определяем тип ReduxStoreWithManager ДО использования
 export interface ReduxStoreWithManager extends ReturnType<typeof configureStore> {
   reducerManager: ReducerManager;
 }
 
+// Шаг 2: Определяем редьюсеры
 const rootReducers: ReducersMapObject<StateSchema> = {
   user: userReducer,
 };
 
+// Шаг 3: Создаем менеджер редьюсеров
 const reducerManager = createReducerManager(rootReducers);
 
-export const store = configureStore({
+// Шаг 4: Создаем сам store
+const store = configureStore({
   reducer: reducerManager.reduce,
-}) as ReduxStoreWithManager;
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api: $api,
+        },
+      },
+    }),
+});
 
-store.reducerManager = reducerManager;
+// Шаг 5: Расширяем store полем reducerManager
+(store as ReduxStoreWithManager).reducerManager = reducerManager;
 
-export type RootState = ReturnType<typeof store.getState>;
+// Шаг 6: Экспорт типов и самого стора
 export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
+
+export { store };

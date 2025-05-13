@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC, memo, ReactNode } from "react";
 
 import styles from './Button.module.scss'
 
@@ -8,10 +8,10 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ children, onClick, disabled }) => {
+const Button: FC<ButtonProps> = memo(({ children, onClick, disabled }) => {
   return <button className={styles.btn} onClick={onClick} disabled={disabled} >
     {children}
   </button>
-};
+});
 
 export default Button;

@@ -3,6 +3,7 @@ import { CollectionsPage } from "@pages/collections";
 import { MainPage } from "@pages/main";
 import { NewsPage } from "@pages/news";
 import NotFoundPage from "@pages/NotFoundPage/NotFoundPage";
+import { ProfilePage } from "@pages/profile";
 import { Layout } from "@widgets/layout";
 import { Route, Routes } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const AppRoutes = () => {
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="collections" element={<CollectionsPage />} />
+        <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>

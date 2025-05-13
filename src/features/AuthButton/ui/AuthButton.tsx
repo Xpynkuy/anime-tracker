@@ -3,9 +3,9 @@ import { userActions } from "@entities/User";
 import LoginModal from "../../AuthByUsername/ul/LoginModal/LoginModal";
 import Button from "@shared/ui/button/Button";
 import { useAppDispatch, useAppSelector } from "@shared/ui/hooks/redux";
-import { useState, useCallback } from "react";
+import { useState, useCallback, memo } from "react";
 
-export const AuthButton = () => {
+export const AuthButton = memo(() => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const authData = useAppSelector(state => state.user?.authData);
@@ -34,4 +34,4 @@ export const AuthButton = () => {
       <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   );
-};
+});
