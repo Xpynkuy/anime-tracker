@@ -6,14 +6,17 @@
   --bg-color: #16151A;
   --bg-color-light: #1d1c229d;
   --bg-color-white: #ffff;
+  --bg-color-gray: #9e9e9e18;
 
   --accent-color: #DC1623; 
-  //#63C489
-  //#DC1623
+  --primary-color: #63C489;
+
 
   --text-color: #ffff;
   --text-color-gray: #9e9e9e;
   --text-color-dark: #000;
+
+  --text-shadow: -0.5px -0.5px 0 #ffff;
 
   --font-size-s: 16px;
   --font-line-s: 22px;
@@ -28,6 +31,10 @@
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+  --font-size-xl: 30px;
+  --font-line-xl: 38px;
+  --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
 
 
   --font-size-xl-logo: 38px;
