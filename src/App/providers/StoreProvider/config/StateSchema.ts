@@ -3,12 +3,12 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 
 import { AxiosInstance } from 'axios';
-import { Profile } from '@entities/Profile';
+import { ProfileSchema } from '@entities/Profile';
 
 export interface StateSchema {
   user: UserSchema;
   loginForm?: LoginSchema;
-  profile?: Profile; 
+  profile?: ProfileSchema; 
 }
 
 export type StateSchemaKey = keyof StateSchema;
