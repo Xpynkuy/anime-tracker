@@ -11,4 +11,29 @@
     &:focus {
         outline: none;
     }
+
+    &--border {
+        border: 1px solid rgb(92, 92, 92);
+        border-radius: var(--border-radius);
+    }
+
+    &--transparent {
+        border: none;
+    }
+
+     &--sm {
+        font: var(--font-s);
+    }
+
+    &--m {
+        font: var(--font-m);
+    }
+
+     &--l {
+         font: var(--font-l);
+    }
+
+     &--xl {
+         font: var(--font-xl);
+    }
 }

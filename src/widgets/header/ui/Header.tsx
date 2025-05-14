@@ -15,9 +15,9 @@ export const Header = () => {
         <Applinks to="/news">News</Applinks>
         <Applinks to="/collections">Collections</Applinks>
       </div>
-      <Applinks to="/profile">Profile</Applinks>
       <SearchInput />
-      <AuthButton/>
+      <Applinks to="/profile">Profile</Applinks>
+      <AuthButton />
     </header>
   );
 };

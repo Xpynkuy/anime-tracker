@@ -20,5 +20,12 @@
         cursor: not-allowed;
         pointer-events: none; 
     }
+     &--primary {
+        background: var(--accent-color);
+    }
+
+    &--secondary {
+        background: var(--primary-color);
+    }
 }
 
