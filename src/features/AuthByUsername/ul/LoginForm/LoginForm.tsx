@@ -1,8 +1,9 @@
-import Button from "@shared/ui/button/Button";
+import Button, { ButtonVariant } from "@shared/ui/button/Button";
 import styles from "./LoginForm.module.scss";
 import Input from "@shared/ui/input/Input";
 import { useAppDispatch } from "@shared/ui/hooks/redux";
 import { memo, useCallback } from "react";
+import { InputTheme } from "@shared/ui/input/Input";
 
 import {
   loginActions,
@@ -14,7 +15,10 @@ import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
-import { DynamicModuleLoader, ReducersList } from "@shared/lib/components/DynamicModuleLoader";
+import {
+  DynamicModuleLoader,
+  ReducersList,
+} from "@shared/lib/components/DynamicModuleLoader";
 import { UnknownAction } from "@reduxjs/toolkit";
 
 const initialReducers: ReducersList = {
@@ -42,7 +46,9 @@ const LoginForm = memo(() => {
     [dispatch]
   );
   const onLogin = useCallback(() => {
-    dispatch(loginByUsername({ username, password }) as unknown as UnknownAction); // Заменен AnyAction
+    dispatch(
+      loginByUsername({ username, password }) as unknown as UnknownAction
+    ); // Заменен AnyAction
   }, [dispatch, username, password]);
 
   return (
@@ -52,13 +58,25 @@ const LoginForm = memo(() => {
         {error && <h4>{error}</h4>}
         <div className={styles.Input}>
           <span>Username</span>
-          <Input onChange={onChangeUsername} value={username} />
+          <Input
+            theme={InputTheme.BORDER}
+            onChange={onChangeUsername}
+            value={username}
+          />
         </div>
         <div className={styles.Input}>
           <span>Password</span>
-          <Input onChange={onChangePassword} value={password} />
+          <Input
+            theme={InputTheme.BORDER}
+            onChange={onChangePassword}
+            value={password}
+          />
         </div>
-        <Button onClick={onLogin} disabled={isLoading}>
+        <Button
+          variant={ButtonVariant.PRIMARY}
+          onClick={onLogin}
+          disabled={isLoading}
+        >
           Login
         </Button>
       </div>

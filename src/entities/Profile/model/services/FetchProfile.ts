@@ -12,7 +12,8 @@ export const fetchProfile = createAsyncThunk<
 
   try {
     const response = await extra.api.get<Profile>("/profile");
-    console.log("Fetched profile:", response.data); // Добавь это
+    console.log("Fetched profile:", response.data); 
+
     return response.data;
   } catch (e) {
     console.log(e);

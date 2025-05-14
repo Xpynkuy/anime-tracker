@@ -1,7 +1,7 @@
 // features/AuthButton/ui/AuthButton.tsx
 import { userActions } from "@entities/User";
 import LoginModal from "../../AuthByUsername/ul/LoginModal/LoginModal";
-import Button from "@shared/ui/button/Button";
+import Button, { ButtonVariant } from "@shared/ui/button/Button";
 import { useAppDispatch, useAppSelector } from "@shared/ui/hooks/redux";
 import { useState, useCallback, memo } from "react";
 
@@ -25,12 +25,12 @@ export const AuthButton = memo(() => {
   }, [dispatch]);
 
   if (authData) {
-    return <Button onClick={handleLogout}>Logout</Button>;
+    return <Button onClick={handleLogout} variant={ButtonVariant.PRIMARY}>Logout</Button>;
   }
 
   return (
     <>
-      <Button onClick={handleOpenModal}>Log In</Button>
+      <Button onClick={handleOpenModal} variant={ButtonVariant.PRIMARY}>Log In</Button>
       <LoginModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </>
   );

@@ -1,6 +1,7 @@
 export interface Profile {
-    name: string,
-    avatar: string,
+    name?: string,
+    gender?: string,
+    avatar?: string,
 }
 
 export interface ProfileSchema {

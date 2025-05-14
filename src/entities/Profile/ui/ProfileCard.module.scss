@@ -1,21 +1,53 @@
 .profileCard {
     display: flex;
-    align-items: end;
-    height: 250px;
+    align-items: start;
+    height: 100%;
     background: var(--bg-color-light);
-
+    border-radius: var(--border-radius);
+    border: 1px solid var(--bg-color-gray);
+    
     .header {
+        position: relative;
+        height: 300px;
+        width: 100%;
+        border-radius: var(--border-radius);
+        background: 
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+            url("/bg-image.jpg") center/cover;
         display: flex;
-        align-items: center;
-        gap: 15px;
-        margin: 25px;
+        align-items: flex-start;
+        padding: 20px; 
+        margin: 20px;
+        justify-content: space-between;
+
+        .content {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            z-index: 1; 
+        }
+        
         .avatar {
             border-radius: var(--border-radius);
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
         }
-        .name {
-            font: var(--font-l);
+
+        .info {
+            max-width: 200px;
+            text-shadow: var(--text-shadow);
+
+                .name {
+                    font: var(--font-xl);
+                .gender {
+                    font: var(--font-xl)
+                }
+            }
+        }
+
+        .editChange {
+            display: flex;
+            gap: 15px;
         }
     }
 }
