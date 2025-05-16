@@ -16,18 +16,23 @@ export enum InputTextSize {
 interface InputProps {
   value?: string;
   onChange?: (value: string) => void;
+  placeholder?: string;
   readonly?: boolean;
   theme?: InputTheme;
   size?: InputTextSize;
+  hasError?: boolean;
+  describedById?: string;
 }
 
 const Input: FC<InputProps> = memo(
   ({
     value,
+    placeholder,
     onChange,
     readonly,
     theme = InputTheme.BORDER,
-    size = InputTextSize.XL,
+    size = InputTextSize.MEDIUM,
+    hasError
   }) => {
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value);
@@ -36,11 +41,15 @@ const Input: FC<InputProps> = memo(
     return (
       <input
         type="text"
-        className={`${styles.input}  ${styles[`input--${theme}`]} 
-                  ${styles[`input--${size}`]}`}
+        className={
+  `${styles.input} ${styles[`input--${theme}`]} ${styles[`input--${size}`]} ${
+    hasError ? styles.error : ""
+  }`
+}
         value={value}
         onChange={onChangeHandler}
         readOnly={readonly}
+        placeholder={placeholder}
       />
     );
   }

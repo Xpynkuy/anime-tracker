@@ -1,45 +1,65 @@
 import styles from "./ProfileCard.module.scss";
 import Button, { ButtonVariant } from "@shared/ui/button/Button";
 import Input, { InputTextSize, InputTheme } from "@shared/ui/input/Input";
-import { Profile } from "../model/type/profile";
+import { Profile, ValidateProfileError } from "../model/type/profile";
 import { useSelector } from "react-redux";
 import { getProfileReadonly } from "../model/selectors/getProfileReadonly/getProfileReadonly";
-import { useAppDispatch } from "@shared/ui/hooks/redux";
-import { useCallback } from "react";
-import { profileActions } from "../model/slice/profileSlice";
+import Loader from "@shared/ui/loader/Loader";
 
 interface ProfileCardProps {
   data?: Profile;
   isLoading?: boolean;
   error?: string;
+  onChangeUserName: (value: string) => void;
+  onChangeDesc: (value: string) => void;
+  onSave: () => void;
+  onEdit: () => void;
+  onCancelEdit: () => void;
+  validateErrors?: ValidateProfileError[];
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
-  const { data, isLoading, error } = props;
+  const {
+    data,
+    isLoading,
+    error,
+    onChangeUserName,
+    onChangeDesc,
+    onSave,
+    onEdit,
+    onCancelEdit,
+    validateErrors,
+  } = props;
 
   const readonly = useSelector(getProfileReadonly);
-  const dispatch = useAppDispatch();
 
-  const onEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(false));
-  }, [dispatch]);
-
-  const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.setReadonly(true));
-  }, [dispatch]);
-
-  const onChangeUserName = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ name: value || "" }));
-    },
-    [dispatch]
+  const nameError = validateErrors?.find((err) =>
+    [
+      ValidateProfileError.EMPTY_NAME,
+      ValidateProfileError.SHORT_NAME,
+      ValidateProfileError.LONG_NAME,
+    ].includes(err)
   );
-  const onChangeGender = useCallback(
-    (value: string) => {
-      dispatch(profileActions.updateProfile({ gender: value || "" }));
-    },
-    [dispatch]
+
+  const descError = validateErrors?.find((err) =>
+    [
+      ValidateProfileError.EMPTY_DESC,
+      ValidateProfileError.SHORT_DESC,
+      ValidateProfileError.LONG_DESC,
+    ].includes(err)
   );
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return (
+      <div className={styles.error}>
+        <h2>Something went wrong</h2>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.profileCard}>
@@ -47,18 +67,33 @@ const ProfileCard = (props: ProfileCardProps) => {
         <div className={styles.content}>
           <img src={data?.avatar} className={styles.avatar} />
           <div className={styles.info}>
+            {!readonly && nameError && (
+              <div className={styles.errorText} id="name-error">
+                {nameError}
+              </div>
+            )}
             <Input
+              value={data?.name ?? ""}
               readonly={readonly}
               onChange={onChangeUserName}
               theme={InputTheme.TRANSPARENT}
-              value={data?.name}
+              size={InputTextSize.XL}
+              hasError={!!nameError}
+              describedById={nameError ? "name-error" : undefined}
             ></Input>
+            {!readonly && descError && (
+              <div className={styles.errorText} id="desc-error">
+                {descError}
+              </div>
+            )}
             <Input
+              value={data?.desc ?? ""}
               readonly={readonly}
-              onChange={onChangeGender}
+              onChange={onChangeDesc}
               theme={InputTheme.TRANSPARENT}
               size={InputTextSize.MEDIUM}
-              value={data?.gender}
+              hasError={!!descError}
+              describedById={descError ? "desc-error" : undefined}
             ></Input>
           </div>
         </div>
@@ -72,7 +107,7 @@ const ProfileCard = (props: ProfileCardProps) => {
               <Button onClick={onCancelEdit} variant={ButtonVariant.PRIMARY}>
                 Cancel
               </Button>
-              <Button onClick={onCancelEdit} variant={ButtonVariant.SECONDARY}>
+              <Button onClick={onSave} variant={ButtonVariant.SECONDARY}>
                 Save
               </Button>
             </div>

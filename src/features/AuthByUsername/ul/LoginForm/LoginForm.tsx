@@ -62,6 +62,7 @@ const LoginForm = memo(() => {
             theme={InputTheme.BORDER}
             onChange={onChangeUsername}
             value={username}
+            placeholder="Enter your username"
           />
         </div>
         <div className={styles.Input}>
@@ -70,6 +71,7 @@ const LoginForm = memo(() => {
             theme={InputTheme.BORDER}
             onChange={onChangePassword}
             value={password}
+            placeholder="Enter your password"
           />
         </div>
         <Button
