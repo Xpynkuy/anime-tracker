@@ -19,22 +19,62 @@
     }
 
     .social {
+        position: relative;
         display: flex;
-        gap: 15px;
-        
-        .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: var(--border-radius);
-            padding: 5px;
-            color: var(--text-color);
-            background: var(--bg-color-white);
-            cursor: pointer;
+        gap: 25px;
+        cursor: pointer;
 
-            svg {
-                fill: var(--text-color-dark);
-              }
-        }     
+    
+    .icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        background: var(--bg-color-white);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+
+      &:hover {
+        .tooltip {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+
+      .tooltip {
+        position: absolute;
+        top: -40px;
+        left: 0%;
+        transform: translateX(-20%) translateY(0px);
+        opacity: 0;
+        background: var(--bg-color-gray);
+        color: var(--text-color-white);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        pointer-events: none;
+
+      }
+            &.iconInstagram:hover svg {
+                fill: #E1306C;
+            }
+
+            &.iconTwitter:hover svg {
+                fill: #1DA1F2;
+            }
+
+            &.iconYoutube:hover svg {
+                fill: #FF0000;
+            }
     }
+
+    svg {
+      fill: var(--text-color-gray);
+      transition: fill 0.3s ease;
+    }
+  }
 }
