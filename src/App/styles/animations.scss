@@ -6,6 +6,13 @@
   }
 }
 
+@mixin hover-bg ($color: var(--bg-color-gray), $duration: 0.4s) {
+  transition: background-color $duration ease;
+  &:hover {
+    background-color: $color;
+  }
+}
+
 
 @keyframes underline-transform {
   from {
