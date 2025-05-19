@@ -35,7 +35,6 @@
 
         .info {
             max-width: 200px;
-            text-shadow: var(--text-shadow);
 
                 .name {
                     font: var(--font-xl);
@@ -53,6 +52,6 @@
 }
 
 .errorText {
-  color: var(--accent-color);
+  color: var(--red-color);
   font: var(--font-size-m-);
 }

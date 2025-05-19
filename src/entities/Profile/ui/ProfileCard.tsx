@@ -104,7 +104,7 @@ const ProfileCard = (props: ProfileCardProps) => {
             </Button>
           ) : (
             <div className={styles.editChange}>
-              <Button onClick={onCancelEdit} variant={ButtonVariant.PRIMARY}>
+              <Button onClick={onCancelEdit} variant={ButtonVariant.RED}>
                 Cancel
               </Button>
               <Button onClick={onSave} variant={ButtonVariant.SECONDARY}>

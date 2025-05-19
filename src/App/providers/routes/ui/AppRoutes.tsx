@@ -6,6 +6,7 @@ import NotFoundPage from "@pages/NotFoundPage/NotFoundPage";
 import { ProfilePage } from "@pages/profile";
 import { Layout } from "@widgets/layout";
 import { Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => {
   return (
@@ -15,7 +16,14 @@ const AppRoutes = () => {
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="collections" element={<CollectionsPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+        <Route
+          path="profile"
+          element={
+            <ProtectedRoute>
+              <ProfilePage />
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
