@@ -9,6 +9,7 @@ import { getProfileForm } from "@entities/Profile/model/selectors/getProfileForm
 import { fetchProfile } from "@entities/Profile/model/services/FetchProfile";
 import { updateProfileForm } from "@entities/Profile/model/services/UpdateProfileForm";
 import ProfileCard from "@entities/Profile/ui/ProfileCard";
+import { getUserAuthData } from "@entities/User";
 
 import {
   DynamicModuleLoader,
@@ -29,10 +30,13 @@ const ProfilePage = () => {
   const error = useSelector(getProfileError);
   const isLoading = useSelector(getProfileIsLoading);
   const validateErrors = useSelector(getProfileValidateError);
+  const authData = useSelector(getUserAuthData);
 
   useEffect(() => {
-    dispatch(fetchProfile());
-  }, [dispatch]);
+    if (authData) {
+      dispatch(fetchProfile());
+    }
+  }, [dispatch, authData]);
 
   const onEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));

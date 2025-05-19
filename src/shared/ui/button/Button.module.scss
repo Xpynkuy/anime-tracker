@@ -10,7 +10,7 @@
     border: none;
     background: var(--accent-color);
     font: var(--font-m);
-    color: var(--text-color);
+    color: var(--text-color-dark);
     cursor: pointer;
 
     @include animations.hover-text-color;
@@ -26,6 +26,10 @@
 
     &--secondary {
         background: var(--primary-color);
+    }
+
+     &--red {
+        background: var(--red-color);
     }
 }
 

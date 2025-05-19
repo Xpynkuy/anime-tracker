@@ -4,9 +4,14 @@ import { LoginSchema } from 'features/AuthByUsername';
 
 import { AxiosInstance } from 'axios';
 import { ProfileSchema } from '@entities/Profile';
+import { PopularAnimeSchema } from '@features/PopularAnime';
+
 
 export interface StateSchema {
   user: UserSchema;
+  popularAnime: PopularAnimeSchema ;
+
+
   loginForm?: LoginSchema;
   profile?: ProfileSchema; 
 }

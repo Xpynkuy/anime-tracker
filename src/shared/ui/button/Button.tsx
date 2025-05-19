@@ -5,6 +5,7 @@ import styles from './Button.module.scss'
 export enum ButtonVariant {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
+  RED = 'red',
 }
 
 
