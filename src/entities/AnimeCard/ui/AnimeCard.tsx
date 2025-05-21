@@ -1,6 +1,5 @@
 import { Anime } from "@shared/api/type/type";
 import styles from "./AnimeCard.module.scss";
-import InfoIcon from "@shared/assets/icon/info.svg";
 
 interface AnimeCardProps {
   anime: Anime;
@@ -22,11 +21,15 @@ export const AnimeCard = ({ anime }: AnimeCardProps) => {
         ) : (
           <span className={styles.rating}>N/A</span>
         )}
-        <img src={InfoIcon} alt="info" className={styles.infoIcon} />
-      </div>
-      <div className={styles.cardInfo}>
-        <span className={styles.titleName}>{anime.title?.romaji}</span>
-        <span className={styles.titleYear}>{anime.seasonYear}</span>
+        <div className={styles.cardInfo}>
+          <span className={styles.titleName}>{anime.title?.romaji}</span>
+          <div className={styles.titleInfo}>
+            <span className={styles.titleYear}>{anime.seasonYear},</span>
+            {anime.genres?.slice(0, 1).map((genre) => (
+              <span className={styles.genre}>{genre}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
