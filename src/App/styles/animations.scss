@@ -6,10 +6,10 @@
   }
 }
 
-@mixin hover-bg ($color: var(--bg-color-gray), $duration: 0.4s) {
-  transition: background-color $duration ease;
+@mixin hover-opac ($duration: 0.4s) {
+  transition:  $duration ease;
   &:hover {
-    background-color: $color;
+    opacity: 0.8;
   }
 }
 
