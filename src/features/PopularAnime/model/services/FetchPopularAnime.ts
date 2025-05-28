@@ -5,7 +5,7 @@ import { anilistApi } from "@shared/api/anilist";
 
 const POPULAR_QUERY = `
 query {
-  Page(page: 1, perPage: 5) {
+  Page(page: 1, perPage: 6) {
     media(sort: SCORE_DESC, type: ANIME) {
       id
       title { romaji }
@@ -13,8 +13,9 @@ query {
       bannerImage
       averageScore
       seasonYear
-      description
       meanScore
+      format
+      genres
     }
   }
 }
