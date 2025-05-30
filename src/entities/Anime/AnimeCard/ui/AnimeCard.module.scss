@@ -1,0 +1,73 @@
+@use '../../../../App/styles/animations.scss' as animations;
+
+.card {
+    position: relative;
+    height: 310px;
+    width: 100%;
+    min-width: 150px;
+    cursor: pointer;
+
+
+    .imageWrapper {
+        position: relative;
+        width: 100%;
+        height: 230px;
+
+        .image {
+            width: 100%;
+            height: 100%;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+
+            @include animations.hover-opac;
+        }
+
+        .rating {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            color: var(--primary-color);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: var(--border-radius);
+            padding: 4px 8px;
+            font: var(--font-s);
+            backdrop-filter: blur(4px);
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .cardInfo {
+            justify-content: space-between;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            
+            .titleName {
+                font: var(--font-s);
+                width: 100%; 
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                margin-top: 10px;
+            }
+
+            .titleInfo {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                .titleYear {
+                    color: var(--text-color-gray);
+                    font: var(--font-s);
+                }
+                .genre {
+                    color: var(--text-color-gray);
+                    font: var(--font-s);
+                }
+            }
+        }
+    }
+}
