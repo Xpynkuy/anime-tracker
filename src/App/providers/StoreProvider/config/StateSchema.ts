@@ -1,19 +1,21 @@
-import { AnyAction, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
+import { AnyAction, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
+import { UserSchema } from "entities/User";
+import { LoginSchema } from "features/AuthByUsername";
 
-import { AxiosInstance } from 'axios';
-import { ProfileSchema } from '@entities/Profile';
-import { PopularAnimeSchema } from '@features/PopularAnime';
-
+import { AxiosInstance } from "axios";
+import { ProfileSchema } from "@entities/Profile";
+import { PopularAnimeSchema } from "@features/PopularAnime";
+import { LatestAnimeSchema } from "@features/LatestReleaseAnime";
+import { TrendingAnimeSchema } from "@features/TrendingAnime";
 
 export interface StateSchema {
   user: UserSchema;
-  popularAnime: PopularAnimeSchema ;
-
+  popularAnime: PopularAnimeSchema;
+  latestAnime: LatestAnimeSchema;
+  trendingAnime: TrendingAnimeSchema;
 
   loginForm?: LoginSchema;
-  profile?: ProfileSchema; 
+  profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -6,8 +6,8 @@ import { getPopularAnimeData } from "../model/selectors/getPopularAnimeData/getP
 import { getPopularAnimeIsLoading } from "../model/selectors/getPopularAnimeIsLoading/getPopularAnimeIsLoading";
 import { getPopularAnimeError } from "../model/selectors/getPopularAnimeError/getPopularAnimeError";
 import Loader from "@shared/ui/loader/Loader";
-import AnimeList from "@entities/AnimeList/ui/AnimeList";
-import styles from './PopularAnime.module.scss'
+import AnimeList from "@entities/Anime/AnimeList/ui/AnimeList";
+import styles from "./PopularAnime.module.scss";
 
 export const PopularAnime = () => {
   const dispatch = useAppDispatch();
@@ -30,10 +30,7 @@ export const PopularAnime = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Special For You</h2>
       <AnimeList items={data} />
     </div>
   );
 };
-
-

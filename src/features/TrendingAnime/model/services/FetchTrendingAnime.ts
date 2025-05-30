@@ -3,10 +3,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Anime } from "@shared/api/type/type";
 import { anilistApi } from "@shared/api/anilist";
 
-const POPULAR_QUERY = `
+const TRENDING_QUERY = `
 query {
-  Page(page: 1, perPage: 7) {
-    media(sort: POPULARITY_DESC, type: ANIME) {
+  Page(page: 1, perPage: 1) {
+    media(sort: TRENDING_DESC, type: ANIME) {
       id
       title { romaji }
       coverImage { large }
@@ -21,14 +21,14 @@ query {
 }
 `;
 
-export const fetchPopularAnime = createAsyncThunk<Anime[]>(
-  "popular/fetch",
+export const fetchTrendingAnime = createAsyncThunk<Anime[]>(
+  "tranding/fetch",
   async (_, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
 
     try {
       const response = await anilistApi.post("/", {
-        query: POPULAR_QUERY,
+        query: TRENDING_QUERY,
       });
 
       return response.data.data.Page.media;
