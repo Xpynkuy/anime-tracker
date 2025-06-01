@@ -23,10 +23,10 @@ export const AnimeCard = ({ anime }: AnimeCardProps) => {
         )}
         <div className={styles.cardInfo}>
           <div className={styles.titleInfo}>
-            <span className={styles.titleYear}>{anime.seasonYear}</span>
             {anime.genres?.slice(0, 1).map((genre) => (
               <span className={styles.genre}>{genre}</span>
             ))}
+            <span className={styles.titleYear}>{anime.seasonYear}</span>
           </div>
           <span className={styles.titleName}>{anime.title?.romaji}</span>
         </div>

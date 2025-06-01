@@ -1,8 +1,53 @@
-.list {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
-    display: flex;
+
+ .default {
+
+    width: 50%;
     
-    gap: 20px;
+
+    @media (min-width: 768px) {
+      width: 25%;
+    }
+    
+
+    @media (min-width: 1024px) {
+      width: calc(100% / 7);
+    }
+  }
+
+
+.compact {
+  width: 150px;
+}
+
+// Карусельный режим
+.carouselWrapper {
+  margin: 0 -8px;
+  overflow: hidden;
+}
+
+.slide {
+  flex: 0 0 auto;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+// Grid режим
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 5), 1fr);
+  gap: var(--grid-gap, 16px);
+  
+
+}
+
+// Flex режим
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--flex-gap, 16px);
+  
+  .item {
     width: 100%;
+    flex-shrink: 0;
+  }
 }
