@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TrendingAnimeSchema } from "../type/anime";
+
 import { fetchTrendingAnime } from "../services/FetchTrendingAnime";
+import { TrendingAnimeSchema } from "../type/anime";
 
 const initialState: TrendingAnimeSchema = {
   data: [],

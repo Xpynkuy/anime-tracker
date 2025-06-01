@@ -5,7 +5,7 @@ import { anilistApi } from "@shared/api/anilist";
 
 const LATEST_RELEASE_QUERY = `
 query {
-  Page(page: 1, perPage: 7) {
+  Page(page: 1, perPage: 12) {
     media(sort: START_DATE_DESC, type: ANIME, status_in: [RELEASING]) {
       id
       title { romaji }

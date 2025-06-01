@@ -6,6 +6,8 @@ import { $api } from '@shared/api/api';
 import { popularAnimeReducer } from '@features/PopularAnime';
 import { latestAnimeReducer } from '@features/LatestReleaseAnime';
 import { trendingAnimeReducer } from '@features/TrendingAnime';
+import { newSeasonAnimeReducer } from '@features/NewSeasonAnime';
+
 
 
 // Шаг 1: Определяем тип ReduxStoreWithManager ДО использования
@@ -18,7 +20,9 @@ const rootReducers: ReducersMapObject<StateSchema> = {
   user: userReducer,
   popularAnime: popularAnimeReducer,
   latestAnime: latestAnimeReducer,
-  trendingAnime: trendingAnimeReducer
+  trendingAnime: trendingAnimeReducer,
+  newSeasonAnime: newSeasonAnimeReducer,
+
 };
 
 // Шаг 3: Создаем менеджер редьюсеров

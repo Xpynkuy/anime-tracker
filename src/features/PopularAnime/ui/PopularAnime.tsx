@@ -30,7 +30,8 @@ export const PopularAnime = () => {
 
   return (
     <div className={styles.wrapper}>
-      <AnimeList items={data} />
+      <h2 className={styles.title}>All time popular</h2>
+      <AnimeList items={data} displayMode="carousel" />
     </div>
   );
 };

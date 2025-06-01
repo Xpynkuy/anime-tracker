@@ -7,12 +7,15 @@ import { ProfileSchema } from "@entities/Profile";
 import { PopularAnimeSchema } from "@features/PopularAnime";
 import { LatestAnimeSchema } from "@features/LatestReleaseAnime";
 import { TrendingAnimeSchema } from "@features/TrendingAnime";
+import { NewSeasonAnimeSchema } from "@features/NewSeasonAnime";
+
 
 export interface StateSchema {
   user: UserSchema;
   popularAnime: PopularAnimeSchema;
   latestAnime: LatestAnimeSchema;
   trendingAnime: TrendingAnimeSchema;
+  newSeasonAnime: NewSeasonAnimeSchema;
 
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

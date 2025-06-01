@@ -1,12 +1,11 @@
 import { useAppDispatch, useAppSelector } from "@shared/ui/hooks/redux";
+import { useEffect } from "react";
+import { fetchLatestAnime } from "../model/services/FetchLatestAnime";
+import styles from "./LatestAnime.module.scss";
 import { getLatestAnimeData } from "../model/selectors/getLatestAnimeData/getLatestAnimeData";
 import { getLatestAnimeIsLoading } from "../model/selectors/getLatestAnimeIsLoading/getLatestAnimeIsLoading";
 import { getLatestAnimeError } from "../model/selectors/getLatestAnimeError/getLatestAnimeError";
-import { useEffect } from "react";
-
 import AnimeList from "@entities/Anime/AnimeList/ui/AnimeList";
-import { fetchLatestAnime } from "../model/services/FetchLatestAnime";
-import styles from './LatestAnime.module.scss'
 
 export const LatestAnime = () => {
   const dispatch = useAppDispatch();
@@ -22,9 +21,7 @@ export const LatestAnime = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Latest Release</h2>
-      <AnimeList items={data} />
+      <AnimeList items={data} displayMode="carousel" />
     </div>
   );
 };
-
-

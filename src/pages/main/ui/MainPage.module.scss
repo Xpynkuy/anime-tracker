@@ -1,5 +1,11 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    row-gap: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+
+  .infoBlock {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px; 
+  }
 }

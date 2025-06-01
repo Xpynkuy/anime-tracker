@@ -1,5 +1,5 @@
-export { trendingAnimeActions, trendingAnimeReducer } from './model/slice/TrandingAnimeSlice'; 
+export { trendingAnimeActions, trendingAnimeReducer } from './model/slice/TrendingAnimeSlice'; 
 export type { TrendingAnimeSchema } from '../TrendingAnime/model/type/anime';
 
 
-export {TrendingBanner} from '../TrendingAnime/ui/TrendingBanner'
+export {TrendingAnime} from '../TrendingAnime/ui/TrendingAnime'
