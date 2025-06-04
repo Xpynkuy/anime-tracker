@@ -1,5 +1,8 @@
 import { Anime } from "@shared/api/type/type";
 import styles from "./AnimeCompactCard.module.scss";
+import StarIcon from '@shared/assets/icon/star.svg?react';
+
+
 
 interface AnimeCompactCardProps {
   anime: Anime;
@@ -24,6 +27,7 @@ export const AnimeCompactCard = ({ anime }: AnimeCompactCardProps) => {
           <span className={styles.titleName}>{anime.title?.romaji}</span>
         </div>
         <div className={styles.ratingWrapper}>
+          <StarIcon className={styles.icon} />
           {anime.averageScore ? (
             <span className={styles.rating}>
               {(anime.averageScore / 10).toFixed(1)}

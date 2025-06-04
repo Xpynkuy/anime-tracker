@@ -8,6 +8,13 @@
   background: var(--bg-color-light);
   box-sizing: border-box;
   padding: 10px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+
   
   .imgWrapper {
     height: 120px;
@@ -42,6 +49,7 @@
       
       .titleName {
         font: var(--font-m);
+        padding-right: 10px;
         white-space: nowrap;
         overflow: hidden;
         white-space: normal;
@@ -49,9 +57,20 @@
     }
 
     .ratingWrapper {
+      display: flex;
+      align-items: start;
+      gap: 8px;
+      font: var(--font-s);
       margin-left: auto; 
-      padding-left: 10px; 
+      padding: 4px 10px; 
+      background: var(--bg-color);
+      border-radius: var(--border-radius);
       flex-shrink: 0; 
+      .icon {
+        width: 18px;
+        height: 18px;
+        fill: var(--text-color);
+    }
     }
   }
 }
