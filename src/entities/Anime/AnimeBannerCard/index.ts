@@ -1,1 +1,0 @@
-export {AnimeBannerCard} from './ul/AnimeBannerCard'
