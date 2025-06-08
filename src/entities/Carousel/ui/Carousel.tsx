@@ -16,7 +16,7 @@ export const Carousel = ({
   withControls = true,
   className = "",
 }: CarouselProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+  const [emblaRef, emblaApi] = useEmblaCarousel({...options, loop:true});
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();

@@ -1,23 +1,14 @@
-
  .default {
-
     width: 50%;
     
-
     @media (min-width: 768px) {
       width: 25%;
     }
     
-
     @media (min-width: 1024px) {
       width: calc(100% / 7);
     }
   }
-
-
-.compact {
-  width: 150px;
-}
 
 // Карусельный режим
 .carouselWrapper {
@@ -36,8 +27,6 @@
   display: grid;
   grid-template-columns: repeat(var(--grid-columns, 5), 1fr);
   gap: var(--grid-gap, 16px);
-  
-
 }
 
 // Flex режим
