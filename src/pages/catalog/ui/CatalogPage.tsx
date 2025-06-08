@@ -1,5 +1,7 @@
+import { memo } from "react";
+
 const CatalogPage = () => {
   return <div>CATALOG</div>;
 };
 
-export default CatalogPage;
+export default memo(CatalogPage);

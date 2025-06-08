@@ -7,6 +7,7 @@ import { ProfilePage } from "@pages/profile";
 import { Layout } from "@widgets/layout";
 import { Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import { AnimeDetailsPage } from "@pages/AnimeDetailsPage";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
         <Route path="catalog" element={<CatalogPage />} />
         <Route path="news" element={<NewsPage />} />
         <Route path="collections" element={<CollectionsPage />} />
+        <Route path="anime/:id" element={<AnimeDetailsPage />} />
         <Route
           path="profile"
           element={

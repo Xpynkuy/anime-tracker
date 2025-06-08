@@ -3,6 +3,7 @@ import { PopularAnime } from "@features/PopularAnime";
 import { TrendingAnime } from "@features/TrendingAnime";
 import { NewSeasonAnime } from "@features/NewSeasonAnime";
 import styles from "./MainPage.module.scss";
+import { memo } from "react";
 
 const MainPage = () => {
   return (
@@ -21,4 +22,4 @@ const MainPage = () => {
   );
 };
 
-export default MainPage;
+export default memo(MainPage);

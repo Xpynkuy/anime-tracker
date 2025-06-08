@@ -16,7 +16,7 @@ import {
   ReducersList,
 } from "@shared/lib/components/DynamicModuleLoader";
 import { useAppDispatch } from "@shared/ui/hooks/redux";
-import { useCallback, useEffect } from "react";
+import { memo, useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const initialReducers: ReducersList = {
@@ -81,4 +81,4 @@ const ProfilePage = () => {
   );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);

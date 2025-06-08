@@ -1,0 +1,1 @@
+export { AnimeDetailsPageAsync as AnimeDetailsPage } from './ui/AnimeDetailsPage.async';
