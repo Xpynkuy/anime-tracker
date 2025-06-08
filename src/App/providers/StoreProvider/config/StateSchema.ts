@@ -8,6 +8,8 @@ import { PopularAnimeSchema } from "@features/PopularAnime";
 import { LatestAnimeSchema } from "@features/LatestReleaseAnime";
 import { TrendingAnimeSchema } from "@features/TrendingAnime";
 import { NewSeasonAnimeSchema } from "@features/NewSeasonAnime";
+import { AnimeDetailsSchema } from "@entities/AnimeDetails";
+
 
 
 export interface StateSchema {
@@ -17,6 +19,8 @@ export interface StateSchema {
   trendingAnime: TrendingAnimeSchema;
   newSeasonAnime: NewSeasonAnimeSchema;
 
+
+  animeDetails?: AnimeDetailsSchema;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
 }
