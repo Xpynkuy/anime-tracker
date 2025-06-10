@@ -23,4 +23,23 @@ export interface Anime {
   status?: 'RELEASING' | 'FINISHED' | 'NOT_YET_RELEASED';
   description?: string;        // Для детальных карточек
   format?: 'TV' | 'MOVIE' | 'OVA';
+  aired?: {
+    string: string;
+  };
+  duration?: number;
+  source?: string;
+  staff: {
+    edges: Array<{
+      role: string;
+      node: {
+        id: number;
+        name: {
+          full: string;
+        };
+        image: {
+          medium: string;
+        };
+      };
+    }>;
+  };
 }
