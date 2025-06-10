@@ -1,0 +1,100 @@
+.overviewContainer {
+    display: flex;
+    gap: 40px;
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        
+        .table {
+            flex: 0 0 auto;
+            overflow-x: auto;
+        }
+        
+        .tableBody {
+            width: 100%;
+            overflow: hidden;
+            gap: 16px;
+            
+            td {
+                font: var(--font-s);
+                padding: 12px 16px;
+                
+                &:first-child {
+                    white-space: nowrap;
+                    color: var(--text-color-gray);
+                }
+                
+                &:last-child {
+                    color: var(--text-color);
+                }
+            }
+            
+            tr:last-child td {
+                border-bottom: none;
+            }
+        }
+    }
+        
+    .description { 
+        flex: 1;
+    }
+
+    .descriptionText {
+        margin-top: 16px;
+        font: var(--font-s);
+        color: var(--text-color-gray);
+    }
+}
+
+
+  @media (max-width: 768px) {
+    .overviewContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .table {
+        width: 100%;
+    }
+  }
+
+  .staffContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+ 
+    
+    .staffItem {
+        display: flex;
+        gap: 10px;
+        padding: 5px;
+        border-radius: var(--border-radius);
+        background: var(--bg-color-light);
+        cursor: pointer;
+        
+        .staffImage {
+            width: 60px;
+            height: 80px;
+            border-radius: var(--border-radius);
+        }
+        
+        .staffInfo {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: start;
+            gap: 5px;
+
+            .staffName {
+                font: var(--font-m);
+            }
+
+            .staffRole {
+                font: var(--font-s);
+                color: var(--text-color-gray);
+            }
+        }
+    }
+  }

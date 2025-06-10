@@ -1,0 +1,58 @@
+.headerWrapper {
+    position: relative;
+    padding-top: 120px;
+    .bgImage {
+        position: absolute;
+        top: -200px;
+        background-position: 50% 35%;
+        margin-left: calc(51% - 50vw);
+        height: 400px;
+        filter: blur(4px);
+
+        .bgImg {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+   .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+
+    .imageWrapper {
+        border-radius: var(--border-radius);
+        height: 330px;
+        .image {
+            border-radius: var(--border-radius);
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    
+
+    .titleInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .Icon {
+                width: 18px;
+                height: 18px;
+                fill: var(--text-color);
+            }
+
+        }
+        .btns {
+            display: flex;
+            gap: 20px;
+        }
+    }
+   }
+
+}

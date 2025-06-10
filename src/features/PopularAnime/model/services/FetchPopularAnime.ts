@@ -16,6 +16,7 @@ query {
       meanScore
       format
       genres
+      duration
     }
   }
 }

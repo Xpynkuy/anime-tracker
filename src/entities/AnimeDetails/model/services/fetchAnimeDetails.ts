@@ -18,6 +18,17 @@ query ($id: Int) {
     episodes
     duration
     status
+    source
+    staff {
+      edges {
+        role
+        node {
+          id
+          name { full }
+          image { medium }
+        }
+      }
+    }
   }
 }
 `;
