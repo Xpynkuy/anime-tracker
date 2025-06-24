@@ -98,3 +98,67 @@
         }
     }
   }
+
+  @media (max-width: 768px) {
+    .staffContainer {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+// Стили для скелетонов
+.tabsSkeleton {
+  .tabHeadersSkeleton {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .tabContentSkeleton {
+    .overviewContainer {
+      display: flex;
+      gap: 40px;
+
+      .details {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .tableSkeleton {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          .tableRowSkeleton {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+          }
+        }
+      }
+
+      .description {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .descriptionSkeleton {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .tabsSkeleton {
+    .tabContentSkeleton {
+      .overviewContainer {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  }
+}

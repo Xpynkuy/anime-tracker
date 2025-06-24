@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import styles from "./Tabs.module.scss";
 
 interface TabsItem {
@@ -35,4 +35,4 @@ const Tabs = ({ tabs, defaultActiveTab, children }: TabsProps) => {
   );
 };
 
-export default Tabs;
+export default memo(Tabs);

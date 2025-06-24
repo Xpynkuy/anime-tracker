@@ -2,12 +2,47 @@ import { Anime } from "@shared/api/type/type";
 import Tabs from "@shared/ui/tabs/Tabs";
 import styles from "./AnimeDetailTabs.module.scss";
 import parse from "html-react-parser";
+import Skeleton from "@shared/ui/skeleton/Skeleton";
 
 interface AnimeDetailTabsProps {
   anime: Anime;
+  isLoading?: boolean;
 }
 
-const AnimeDetailTabs = ({ anime }: AnimeDetailTabsProps) => {
+const AnimeDetailTabs = ({ anime, isLoading }: AnimeDetailTabsProps) => {
+  if (isLoading) {
+    return (
+      <div className={styles.tabsSkeleton}>
+        <div className={styles.tabHeadersSkeleton}></div>
+        <div className={styles.tabContentSkeleton}>
+          <div className={styles.overviewContainer}>
+            <div className={styles.details}>
+              <Skeleton width="150px" height="32px" border="4px" />
+              <div className={styles.tableSkeleton}>
+                {[...Array(8)].map((_, index) => (
+                  <div key={index} className={styles.tableRowSkeleton}>
+                    <Skeleton width="80px" height="24px" border="4px" />
+                    <Skeleton width="200px" height="24px" border="4px" />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={styles.description}>
+              <Skeleton width="150px" height="32px" border="4px" />
+              <div className={styles.descriptionSkeleton}>
+                <Skeleton width="100%" height="20px" border="4px" />
+                <Skeleton width="90%" height="20px" border="4px" />
+                <Skeleton width="95%" height="20px" border="4px" />
+                <Skeleton width="85%" height="20px" border="4px" />
+                <Skeleton width="100%" height="20px" border="4px" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   if (!anime) return null;
 
   const formatDescription = (htmlString?: string) => {
@@ -75,8 +110,8 @@ const AnimeDetailTabs = ({ anime }: AnimeDetailTabsProps) => {
         }
         return (
           <div className={styles.staffContainer}>
-            {anime.staff.edges.slice(0, 8).map((staff) => (
-              <div key={staff.node.id} className={styles.staffItem}>
+            {anime.staff.edges.slice(0, 8).map((staff, index) => (
+              <div key={index} className={styles.staffItem}>
                 <img
                   src={staff.node.image.medium}
                   alt={staff.node.name.full}

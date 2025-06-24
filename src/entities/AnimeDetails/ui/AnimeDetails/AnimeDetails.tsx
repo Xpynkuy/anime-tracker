@@ -13,8 +13,9 @@ import {
   ReducersList,
 } from "@shared/lib/components/DynamicModuleLoader";
 import { animeDetailsReducer } from "@entities/AnimeDetails/model/slice/AnimeDetailsSlice";
-import Loader from "@shared/ui/loader/Loader";
 import AnimeDetailTabs from "../AnimeDetailTabs/AnimeDetailTabs";
+import styles from './AnimeDetails.module.scss';
+
 
 const initialReducers: ReducersList = {
   animeDetails: animeDetailsReducer,
@@ -31,10 +32,17 @@ export const AnimeDetails = () => {
     dispatch(fetchAnimeDetails(Number(id)));
   }, [dispatch, id]);
 
-  // let content =<AnimeDetailHeaderBlock anime={data!} />;
-  let content = <AnimeDetailTabs anime={data!} />;
-
-
+  let content;
+  if (error) {
+    content = <div>Error</div>;
+  } else {
+    content = (
+      <div className={styles.content}>
+        <AnimeDetailHeaderBlock anime={data!} isLoading={isLoading} />
+        <AnimeDetailTabs anime={data!} isLoading={isLoading} />
+      </div>
+    );
+  }
 
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={true}>
