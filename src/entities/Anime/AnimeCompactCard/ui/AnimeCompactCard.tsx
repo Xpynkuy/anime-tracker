@@ -1,14 +1,13 @@
 import { Anime } from "@shared/api/type/type";
 import styles from "./AnimeCompactCard.module.scss";
-import StarIcon from '@shared/assets/icon/star.svg?react';
-
-
+import StarIcon from "@shared/assets/icon/star.svg?react";
+import { memo } from "react";
 
 interface AnimeCompactCardProps {
   anime: Anime;
 }
 
-export const AnimeCompactCard = ({ anime }: AnimeCompactCardProps) => {
+export const AnimeCompactCard = memo(({ anime }: AnimeCompactCardProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.imgWrapper}>
@@ -39,4 +38,4 @@ export const AnimeCompactCard = ({ anime }: AnimeCompactCardProps) => {
       </div>
     </div>
   );
-};
+});
