@@ -9,6 +9,7 @@ import { LatestAnimeSchema } from "@features/LatestReleaseAnime";
 import { TrendingAnimeSchema } from "@features/TrendingAnime";
 import { NewSeasonAnimeSchema } from "@features/NewSeasonAnime";
 import { AnimeDetailsSchema } from "@entities/AnimeDetails";
+import { CatalogPageSchema } from "@pages/catalog";
 
 
 
@@ -18,7 +19,7 @@ export interface StateSchema {
   latestAnime: LatestAnimeSchema;
   trendingAnime: TrendingAnimeSchema;
   newSeasonAnime: NewSeasonAnimeSchema;
-
+  catalog: CatalogPageSchema;
 
   animeDetails?: AnimeDetailsSchema;
   loginForm?: LoginSchema;

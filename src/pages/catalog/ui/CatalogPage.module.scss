@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    gap: 20px;
+
+    .contentLeft {
+        width: 300px;
+        flex-shrink: 0;
+        height: fit-content;
+        position: sticky;
+    }
+    .contentRight {
+        flex: 1;
+        min-width: 0;
+    }
+}

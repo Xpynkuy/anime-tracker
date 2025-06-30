@@ -14,5 +14,15 @@
 
     .links {
         display: flex;
+        margin-right: auto;
+    }
+
+    .search {
+        margin: 0 auto;
+    }
+
+    .rightLinks {
+        display: flex;
+        align-items: center;
     }
 }

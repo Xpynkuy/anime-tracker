@@ -15,12 +15,14 @@ export const Header = () => {
       <div className={styles.links}>
         <Applinks to="/">Home</Applinks>
         <Applinks to="/catalog">Catalog</Applinks>
-        <Applinks to="/news">News</Applinks>
-        <Applinks to="/collections">Collections</Applinks>
       </div>
-      <SearchInput />
-      {auth && <Applinks to="/profile">Profile</Applinks>}
-      <AuthButton />
+      <div className={styles.search}>
+        <SearchInput />
+      </div>
+      <div className={styles.rightLinks}>
+        {auth && <Applinks to="/profile">Profile</Applinks>}
+        <AuthButton />
+      </div>
     </header>
   );
 };
