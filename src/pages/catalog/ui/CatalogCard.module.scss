@@ -43,6 +43,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            
 
             .ratingWrapper {
                 display: flex;
@@ -96,4 +97,9 @@
         }
     }
 
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
 }

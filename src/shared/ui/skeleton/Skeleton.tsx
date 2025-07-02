@@ -5,16 +5,19 @@ interface SkeletonProps {
     width?: string|number;
     height?: string|number;
     border?: string|number;
+    className?: string;
 }
-const Skeleton = memo(({width, height, border}: SkeletonProps) => {
+const Skeleton = memo(({width, height, border, className = ''}: SkeletonProps) => {
 
     const styles: CSSProperties = {
         width,
         height,
         borderRadius: border,
     }
+
+    const combinedClasses = `${cls.skeleton} ${className}`
   return (
-    <div className={cls.skeleton} style={styles} />
+    <div className={combinedClasses.trim()} style={styles} />
   )
 })
 
