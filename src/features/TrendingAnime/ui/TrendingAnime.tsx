@@ -31,7 +31,12 @@ export const TrendingAnime = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Trending Now</h2>
-      <AnimeList items={data} cardVariant="compact" displayMode="flex"/>
+      <AnimeList
+        items={data}
+        cardVariant="compact"
+        displayMode="flex"
+        isLoading={isLoading}
+      />
     </div>
   );
 };

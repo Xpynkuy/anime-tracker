@@ -21,7 +21,7 @@ export const LatestAnime = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Latest Release</h2>
-      <AnimeList items={data} displayMode="carousel" />
+      <AnimeList items={data} displayMode="carousel" isLoading={isLoading} />
     </div>
   );
 };

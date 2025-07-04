@@ -19,10 +19,6 @@ export const NewSeasonAnime = () => {
     dispatch(fetchNewSeasonAnime());
   }, [dispatch]);
 
-  if (isLoading) {
-    return <Loader />;
-  }
-
   if (error) {
     return <h2>{error}</h2>;
   }
@@ -30,7 +26,12 @@ export const NewSeasonAnime = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Upcoming Season</h2>
-      <AnimeList items={data} cardVariant="compact" displayMode="flex" />
+      <AnimeList
+        items={data}
+        cardVariant="compact"
+        displayMode="flex"
+        isLoading={isLoading}
+      />
     </div>
   );
 };
