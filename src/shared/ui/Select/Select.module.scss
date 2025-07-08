@@ -1,0 +1,48 @@
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    .selected {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 40px;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--bg-color-light);
+        padding: 4px 8px;
+        background: var(--bg-color-light);
+        
+
+        .icon {
+            height: 24px;
+            width: 24px;
+            transition: transform 0.2s;
+            
+            &.rotated {
+                transform: rotate(180deg)
+            }
+        }
+    }
+
+    .dropDown {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--bg-color-gray);
+        z-index: 100;
+        
+
+        .options {
+            background: var(--bg-color-light);
+            padding: 4px 8px;
+
+            &:hover {
+                background-color: var(--bg-color-gray)
+            }
+        }
+    }
+};
