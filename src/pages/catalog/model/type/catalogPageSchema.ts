@@ -7,4 +7,3 @@ export interface CatalogPageSchema {
   currentPage: number;
   hasNextPage: boolean;
 }
-

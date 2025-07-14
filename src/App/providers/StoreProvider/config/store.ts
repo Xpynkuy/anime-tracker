@@ -8,6 +8,7 @@ import { latestAnimeReducer } from '@features/LatestReleaseAnime';
 import { trendingAnimeReducer } from '@features/TrendingAnime';
 import { newSeasonAnimeReducer } from '@features/NewSeasonAnime';
 import { catalogReducer } from '@pages/catalog';
+import { catalogFiltersReducer } from '@entities/Filter/model/slice/CatalogFilterSlice';
 
 
 
@@ -24,6 +25,7 @@ const rootReducers: ReducersMapObject<StateSchema> = {
   trendingAnime: trendingAnimeReducer,
   newSeasonAnime: newSeasonAnimeReducer,
   catalog: catalogReducer,
+  catalogFilters: catalogFiltersReducer,
 };
 
 // Шаг 3: Создаем менеджер редьюсеров

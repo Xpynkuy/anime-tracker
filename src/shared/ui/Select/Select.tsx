@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Select.module.scss";
-import Arrow from '@shared/assets/icon/arrow.svg?react'
+import Arrow from "@shared/assets/icon/arrow.svg?react";
 
 interface selectOption {
   value?: string;
@@ -9,7 +9,7 @@ interface selectOption {
 
 interface SelectProps {
   placeholder?: string;
-  value?: string;
+  value?: string | string[];
   onChangeValue?: (value: string) => void;
   options: selectOption[];
 }
@@ -43,14 +43,21 @@ const Select = ({
 
   return (
     <div className={styles.wrapper} ref={ref}>
-      <div className={`${styles.selected} ${isOpen ? styles.open : ''}`} onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={`${styles.selected} ${isOpen ? styles.open : ""}`}
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <span>{displayValue}</span>
-        <Arrow className={`${styles.icon} ${isOpen ? styles.rotated : ''}`} />
+        <Arrow className={`${styles.icon} ${isOpen ? styles.rotated : ""}`} />
       </div>
       {isOpen && (
         <div className={styles.dropDown}>
-          {options.map(opt => (
-            <div key={opt.value} className={styles.options} onClick={() => handleSelct(opt.value || '')}>
+          {options.map((opt) => (
+            <div
+              key={opt.value}
+              className={styles.options}
+              onClick={() => handleSelct(opt.value || "")}
+            >
               {opt.label}
             </div>
           ))}

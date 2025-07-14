@@ -8,57 +8,13 @@ import Skeleton from "@shared/ui/skeleton/Skeleton";
 
 interface CatalogCardProps {
   item: Anime;
-  isLoading?: boolean;
 }
 
-export const CatalogCard = ({ item, isLoading }: CatalogCardProps) => {
+export const CatalogCard = ({ item }: CatalogCardProps) => {
   const cleanDesc = useMemo(() => {
     if (!item.description) return "No description available";
     return item.description.replace(/<[^>]*>/g, "");
   }, []);
-
-  if (isLoading) {
-    return (
-      <div className={styles.cardContainer}>
-        <div className={styles.imgContainer}>
-          <Skeleton className={styles.img} />
-        </div>
-        <div className={styles.info}>
-          <Skeleton width={"300px"} height={"20px"} className={styles.title} />
-          <div className={styles.titleInfo}>
-            <div className={styles.ratingWrapper}>
-              <Skeleton
-                width={"100px"}
-                height={"20px"}
-                className={styles.rating}
-              />
-            </div>
-            <div className={styles.duration}>
-              <Skeleton
-                width={"100px"}
-                height={"20px"}
-                className={styles.duration}
-              />
-            </div>
-          </div>
-          <div className={styles.genres}>
-            <Skeleton
-              width={"100px"}
-              height={"20px"}
-              className={styles.genre}
-            />
-          </div>
-          <div className={styles.desc}>
-            <Skeleton
-              width={"400px"}
-              height={"100px"}
-              className={styles.desc}
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <Link to={`/anime/${item.id}`} className={styles.link}>
@@ -90,7 +46,7 @@ export const CatalogCard = ({ item, isLoading }: CatalogCardProps) => {
           </div>
           <div className={styles.genres}>
             {item.genres?.slice(0, 3).map((genre, index) => (
-              <span className={styles.genre}>{genre}</span>
+              <span key={index} className={styles.genre}>{genre}</span>
             ))}
           </div>
           <div className={styles.desc}>{cleanDesc}</div>

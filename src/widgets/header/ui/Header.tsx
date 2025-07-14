@@ -17,9 +17,6 @@ export const Header = () => {
           <Applinks to="/">Home</Applinks>
           <Applinks to="/catalog">Catalog</Applinks>
         </div>
-        <div className={styles.search}>
-          <SearchInput />
-        </div>
         <div className={styles.rightLinks}>
           {auth && <Applinks to="/profile">Profile</Applinks>}
           <AuthButton />

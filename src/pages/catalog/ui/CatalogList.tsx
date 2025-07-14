@@ -1,18 +1,20 @@
 import { useAppSelector } from "@shared/ui/hooks/redux";
 import { useInfiniteScroll } from "@shared/ui/hooks/useInfiniteScroll";
 import { CatalogCard } from "./CatalogCard";
-import styles from './CatalogList.module.scss'
+import styles from "./CatalogList.module.scss";
+import Loader from "@shared/ui/loader/Loader";
+import { catalogInitialState } from "../model/slice/CatalogSlice";
 
 const CatalogList = () => {
-  const { data, isLoading, error, hasNextPage } = useAppSelector(
-    (state) => state.catalog
-  );
+   const catalogState = useAppSelector((state) => state.catalog ?? catalogInitialState);
+  
+  // Деструктурируем из гарантированно существующего объекта
+  const { data, isLoading, error, hasNextPage } = catalogState;
+
   const observerRef = useInfiniteScroll();
 
   if (error) {
-    return (
-        <div>Smth wrong</div>
-    )
+    return <div>Smth wrong</div>;
   }
 
   return (
@@ -26,11 +28,12 @@ const CatalogList = () => {
               <CatalogCard key={index} item={item} />
             ))}
           </div>
-
-          {/* Элемент для отслеживания скролла */}
+          {isLoading && (
+            <div className={styles.loader}>
+              <Loader />
+            </div>
+          )}
           <div ref={observerRef} className="h-1" />
-
-          {isLoading && <div>loading</div>}
 
           {!hasNextPage && data.length > 0 && (
             <div className="text-center py-4 text-gray-500">

@@ -1,59 +1,55 @@
 import { useRef, useEffect, useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "./redux";
 import { fetchCatalogPage } from "@pages/catalog/model/services/fetchCatalogPage";
+import { catalogFiltersInitialState } from "@entities/Filter/model/slice/CatalogFilterSlice";
+import { catalogInitialState } from "@pages/catalog/model/slice/CatalogSlice"; // Добавьте импорт
 
-export const useInfiniteScroll = () => { 
-    const dispatch = useAppDispatch();
-    const { currentPage, hasNextPage, isLoading } = useAppSelector((state) => state.catalog);
-    const observerRef = useRef<HTMLDivElement>(null);
-    const observerInstance = useRef<IntersectionObserver | null>(null);
+export const useInfiniteScroll = () => {
+  const dispatch = useAppDispatch();
+  
+  // Используем запасное значение для catalog
+  const catalogState = useAppSelector((state) => state.catalog ?? catalogInitialState);
+  
+  // Деструктурируем из гарантированно существующего объекта
+  const { currentPage, hasNextPage, isLoading } = catalogState;
+  
+  // Используем значение по умолчанию для фильтров
+  const filters = useAppSelector((state) => state.catalogFilters ?? catalogFiltersInitialState);
 
-    const loadNextPage = useCallback(() => {
-        if (hasNextPage && !isLoading) {
-            dispatch(fetchCatalogPage(currentPage));
+  const observerRef = useRef<HTMLDivElement>(null);
+
+  const loadNextPage = () => {
+    if (hasNextPage && !isLoading) {
+      dispatch(fetchCatalogPage({
+        page: currentPage + 1,
+        format: filters.format,
+        seasonYear: filters.seasonYear,
+        genre_in: filters.genres,
+      }));
+    }
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadNextPage();
         }
-    }, [dispatch, hasNextPage, isLoading, currentPage]);
+      },
+      { threshold: 0.1 }
+    );
 
-    // Загрузка первой страницы при монтировании
-    useEffect(() => {
-        // Загружаем только если это первая страница и данных нет
-        if (currentPage === 1 && !isLoading && hasNextPage) {
-            dispatch(fetchCatalogPage(1));
-        }
-    }, [dispatch, currentPage, isLoading, hasNextPage]);
+    const currentRef = observerRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-    // Настройка Intersection Observer
-    useEffect(() => {
-        if (!observerRef.current) return;
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [loadNextPage]);
 
-        // Очищаем предыдущий observer
-        if (observerInstance.current) {
-            observerInstance.current.disconnect();
-        }
-
-        observerInstance.current = new IntersectionObserver(
-            (entries) => {
-                const [entry] = entries;
-                if (entry.isIntersecting && hasNextPage && !isLoading) {
-                    loadNextPage();
-                }
-            },
-            {
-                root: null,
-                rootMargin: "0px", // Загружаем заранее
-                threshold: 1,
-            }
-        );
-
-        const currentElement = observerRef.current;
-        observerInstance.current.observe(currentElement);
-
-        return () => {
-            if (observerInstance.current) {
-                observerInstance.current.disconnect();
-            }
-        };
-    }, [loadNextPage, hasNextPage, isLoading]);
-
-    return observerRef;
+  return observerRef;
 };

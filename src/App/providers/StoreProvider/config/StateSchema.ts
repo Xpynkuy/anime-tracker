@@ -10,6 +10,7 @@ import { TrendingAnimeSchema } from "@features/TrendingAnime";
 import { NewSeasonAnimeSchema } from "@features/NewSeasonAnime";
 import { AnimeDetailsSchema } from "@entities/AnimeDetails";
 import { CatalogPageSchema } from "@pages/catalog";
+import { CatalogFiltersSchema } from "@entities/Filter/model/types/Filter";
 
 
 
@@ -19,8 +20,9 @@ export interface StateSchema {
   latestAnime: LatestAnimeSchema;
   trendingAnime: TrendingAnimeSchema;
   newSeasonAnime: NewSeasonAnimeSchema;
+  
   catalog: CatalogPageSchema;
-
+  catalogFilters: CatalogFiltersSchema;
   animeDetails?: AnimeDetailsSchema;
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
