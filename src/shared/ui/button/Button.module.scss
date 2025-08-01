@@ -1,35 +1,52 @@
-@use '/src/App/styles/animations.scss' as animations;
+@use "/src/App/styles/animations.scss" as animations;
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    min-width: 100px;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  min-width: 100px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--accent-color);
+  font: var(--font-m);
+  color: var(--text-color-dark);
+  cursor: pointer;
+
+  @include animations.hover-text-color;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  &--primary {
     background: var(--accent-color);
+  }
+
+  &--secondary {
+    background: var(--primary-color);
+  }
+
+  &--red {
+    background: var(--red-color);
+  }
+
+  &--small {
+    font: var(--font-s);
+    height: 30px;
+    max-width: 80px;
+  }
+
+  &--medium {
     font: var(--font-m);
-    color: var(--text-color-dark);
-    cursor: pointer;
+    height: 50px;
+    max-width: 140px;
+  }
 
-    @include animations.hover-text-color;
-    
-    &:disabled {
-        opacity: 0.3;
-        cursor: not-allowed;
-        pointer-events: none; 
-    }
-     &--primary {
-        background: var(--accent-color);
-    }
-
-    &--secondary {
-        background: var(--primary-color);
-    }
-
-     &--red {
-        background: var(--red-color);
-    }
+  &--large {
+    font: var(--font-l);
+    height: 60px;
+    max-width: 160px;
+  }
 }
-
