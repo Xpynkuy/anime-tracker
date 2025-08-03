@@ -7,6 +7,7 @@ interface ApplinksProps {
   children: ReactNode;
   to: string;
   noAnimation?: boolean;
+  className?: string;
 }
 
 const Applinks: FC<ApplinksProps> = memo(({ children, to, noAnimation }) => {
